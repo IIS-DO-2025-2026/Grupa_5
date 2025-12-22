@@ -7,4 +7,5 @@
  */
 module Grupa5 {
 	requires java.desktop;
+	requires heksagon;
 }

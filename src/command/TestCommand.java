@@ -47,6 +47,7 @@ public class TestCommand {
 		updatePointCmd.execute();
 		System.out.println(model.getShapes());
 		
+		
 	}
 
 }
