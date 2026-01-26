@@ -1,18 +1,22 @@
-package mvc;
+package prototype;
 
 import java.awt.Color;
 import java.awt.Graphics;
 
-public class Line extends Shape{
+import mvc.Point;
+import mvc.Shape;
+
+//1. način (shallow kloniranje)
+public class LineShallow extends Shape implements Cloneable{
 	private Point startPoint = new Point();
 	private Point endPoint = new Point();
 	private Color color;
 	
-	public Line() {
+	public LineShallow() {
 		
 	}
 	
-	public Line(Point startPoint, Point endPoint, Color color) {
+	public LineShallow(Point startPoint, Point endPoint, Color color) {
 		this.startPoint = startPoint;
 		this.endPoint = endPoint;
 		this.color = color;
@@ -47,6 +51,17 @@ public class Line extends Shape{
 	public void draw(Graphics g) {
 		// nećemo testirati
 		
+	}
+	
+	//PROTOTYPE 1. način - shallow copy
+	public LineShallow clone () {
+		try {
+			return (LineShallow)super.clone();
+		} catch (CloneNotSupportedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		}
 	}
 	
 

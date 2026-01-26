@@ -1,18 +1,22 @@
-package mvc;
+package prototype;
 
 import java.awt.Color;
 import java.awt.Graphics;
 
-public class Line extends Shape{
+import mvc.Point;
+import mvc.Shape;
+
+//2. način (deep kloniranje)
+public class LineDeep extends Shape{
 	private Point startPoint = new Point();
 	private Point endPoint = new Point();
 	private Color color;
 	
-	public Line() {
+	public LineDeep() {
 		
 	}
 	
-	public Line(Point startPoint, Point endPoint, Color color) {
+	public LineDeep(Point startPoint, Point endPoint, Color color) {
 		this.startPoint = startPoint;
 		this.endPoint = endPoint;
 		this.color = color;
@@ -48,6 +52,21 @@ public class Line extends Shape{
 		// nećemo testirati
 		
 	}
+	
+	//PROTOYPE 2. način - deep copy
+	public LineDeep clone() {
+		LineDeep line = new LineDeep();
+		
+		line.getStartPoint().setX(this.getStartPoint().getX());
+		line.getStartPoint().setY(this.getStartPoint().getY());
+		line.getEndPoint().setX(this.getEndPoint().getX());
+		line.getEndPoint().setY(this.getEndPoint().getY());
+		
+		line.setColor(color);
+		
+		return line;
+	}
+	
 	
 
 }
